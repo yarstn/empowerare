@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, Palette } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export function SiteFooter() {
+  const { t } = useI18n();
   return (
     <footer className="mt-24 border-t border-border/60 bg-gradient-soft">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
@@ -12,28 +14,26 @@ export function SiteFooter() {
             </span>
             EmpowerArt
           </div>
-          <p className="text-sm text-muted-foreground">
-            A creative marketplace empowering artists with disabilities to thrive.
-          </p>
+          <p className="text-sm text-muted-foreground">{t("footer.tagline")}</p>
         </div>
-        <FooterCol title="Discover" links={[
-          { to: "/marketplace", label: "Marketplace" },
-          { to: "/artists", label: "Artists" },
-          { to: "/community", label: "Workshops" },
+        <FooterCol title={t("footer.discover")} links={[
+          { to: "/marketplace", label: t("nav.marketplace") },
+          { to: "/artists", label: t("nav.artists") },
+          { to: "/community", label: t("nav.community") },
         ]} />
-        <FooterCol title="For Artists" links={[
-          { to: "/ai-studio", label: "AI Studio" },
+        <FooterCol title={t("footer.forArtists")} links={[
+          { to: "/ai-studio", label: t("nav.ai") },
           { to: "/admin", label: "Admin" },
-          { to: "/settings", label: "Settings" },
+          { to: "/settings", label: t("nav.settings") },
         ]} />
-        <FooterCol title="Support" links={[
-          { to: "/accessibility", label: "Accessibility" },
+        <FooterCol title={t("footer.support")} links={[
+          { to: "/accessibility", label: t("nav.accessibility") },
           { to: "/community", label: "Donate" },
           { to: "/", label: "Contact" },
         ]} />
       </div>
       <div className="border-t border-border/60 py-6 text-center text-sm text-muted-foreground">
-        Made with <Heart className="inline h-4 w-4 fill-secondary text-secondary" /> for inclusive creativity.
+        {t("footer.made")} <Heart className="inline h-4 w-4 fill-secondary text-secondary" />
       </div>
     </footer>
   );

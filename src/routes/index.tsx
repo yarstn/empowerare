@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, Heart, Users, TrendingUp, Quote } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { ArtworkCard } from "@/components/artwork-card";
 import { artworks, artists } from "@/lib/data";
+import { useI18n } from "@/lib/i18n";
 import heroArt from "@/assets/hero-art.jpg";
 
 export const Route = createFileRoute("/")({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const { t } = useI18n();
   return (
     <>
       {/* Hero */}
@@ -27,30 +29,30 @@ function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 md:grid-cols-2 md:px-6 md:py-24">
           <div className="space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full bg-card/80 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur">
-              <Sparkles className="h-4 w-4" /> A marketplace built on belonging
+              <Sparkles className="h-4 w-4" /> {t("hero.badge")}
             </span>
             <h1 className="text-balance font-display text-5xl font-semibold leading-[1.05] text-primary md:text-6xl lg:text-7xl">
-              Art that empowers, hands that inspire.
+              {t("hero.title")}
             </h1>
             <p className="max-w-xl text-balance text-lg text-muted-foreground">
-              EmpowerArt is a warm, accessible home where artists with disabilities showcase, sell, and grow — supported by community, AI tools, and people like you.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full bg-gradient-cta px-7 text-base text-primary-foreground shadow-soft hover:opacity-95">
-                <Link to="/marketplace">Explore Creations <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                <Link to="/marketplace">{t("cta.exploreCreations")} <ArrowRight className="ml-1 h-4 w-4 rtl:rotate-180" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full border-2 border-primary px-7 text-base text-primary hover:bg-primary hover:text-primary-foreground">
-                <Link to="/ai-studio">Start Selling</Link>
+                <Link to="/ai-studio">{t("cta.startSelling")}</Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="rounded-full px-7 text-base text-primary">
-                <Link to="/community">Support Artists <Heart className="ml-1 h-4 w-4" /></Link>
+                <Link to="/community">{t("cta.supportArtists")} <Heart className="ml-1 h-4 w-4" /></Link>
               </Button>
             </div>
             <dl className="grid grid-cols-3 gap-4 pt-6">
               {[
-                { k: "1.2k+", v: "Artists" },
-                { k: "$840k", v: "Earned" },
-                { k: "62", v: "Countries" },
+                { k: "1.2k+", v: t("stats.artists") },
+                { k: "$840k", v: t("stats.earned") },
+                { k: "62", v: t("stats.countries") },
               ].map((s) => (
                 <div key={s.v} className="rounded-2xl bg-card/70 p-4 text-center backdrop-blur">
                   <dt className="font-display text-2xl font-bold text-primary">{s.k}</dt>
@@ -80,8 +82,8 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-6">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-teal">Featured Artists</p>
-            <h2 className="mt-2 font-display text-4xl font-semibold">Voices behind the work</h2>
+            <p className="text-sm font-semibold uppercase tracking-wider text-teal">{t("section.featured")}</p>
+            <h2 className="mt-2 font-display text-4xl font-semibold">{t("section.featuredTitle")}</h2>
           </div>
           <Link to="/artists" className="hidden text-sm font-medium text-primary hover:underline md:block">View all artists →</Link>
         </div>
@@ -107,8 +109,8 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-teal">Trending Now</p>
-              <h2 className="mt-2 font-display text-4xl font-semibold">Creations the community loves</h2>
+              <p className="text-sm font-semibold uppercase tracking-wider text-teal">{t("section.trending")}</p>
+              <h2 className="mt-2 font-display text-4xl font-semibold">{t("section.trendingTitle")}</h2>
             </div>
             <Link to="/marketplace" className="hidden text-sm font-medium text-primary hover:underline md:block">Browse marketplace →</Link>
           </div>

@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AccessibilityBar } from "@/components/accessibility-bar";
+import { I18nProvider, useI18n } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -62,7 +63,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" },
       { rel: "stylesheet", href: appCss },
     ],
   }),
@@ -88,8 +89,19 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <I18nProvider>
+        <AppShell />
+      </I18nProvider>
+    </QueryClientProvider>
+  );
+}
+
+function AppShell() {
+  const { t } = useI18n();
+  return (
+    <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">
-        Skip to content
+        {t("skip")}
       </a>
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
@@ -99,6 +111,6 @@ function RootComponent() {
         <SiteFooter />
       </div>
       <AccessibilityBar />
-    </QueryClientProvider>
+    </>
   );
 }
