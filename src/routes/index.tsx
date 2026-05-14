@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, Heart, Users, TrendingUp, Quote } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { ArtworkCard } from "@/components/artwork-card";
 import { artworks, artists } from "@/lib/data";
+import { useI18n } from "@/lib/i18n";
 import heroArt from "@/assets/hero-art.jpg";
 
 export const Route = createFileRoute("/")({
