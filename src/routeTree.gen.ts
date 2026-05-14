@@ -9,38 +9,188 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as AiStudioRouteImport } from './routes/ai-studio'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArtistsIndexRouteImport } from './routes/artists.index'
+import { Route as ArtistsIdRouteImport } from './routes/artists.$id'
 
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketplaceRoute = MarketplaceRouteImport.update({
+  id: '/marketplace',
+  path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioRoute = AiStudioRouteImport.update({
+  id: '/ai-studio',
+  path: '/ai-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArtistsIndexRoute = ArtistsIndexRouteImport.update({
+  id: '/artists/',
+  path: '/artists/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtistsIdRoute = ArtistsIdRouteImport.update({
+  id: '/artists/$id',
+  path: '/artists/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/admin': typeof AdminRoute
+  '/ai-studio': typeof AiStudioRoute
+  '/community': typeof CommunityRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/settings': typeof SettingsRoute
+  '/artists/$id': typeof ArtistsIdRoute
+  '/artists/': typeof ArtistsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/admin': typeof AdminRoute
+  '/ai-studio': typeof AiStudioRoute
+  '/community': typeof CommunityRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/settings': typeof SettingsRoute
+  '/artists/$id': typeof ArtistsIdRoute
+  '/artists': typeof ArtistsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/admin': typeof AdminRoute
+  '/ai-studio': typeof AiStudioRoute
+  '/community': typeof CommunityRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/settings': typeof SettingsRoute
+  '/artists/$id': typeof ArtistsIdRoute
+  '/artists/': typeof ArtistsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accessibility'
+    | '/admin'
+    | '/ai-studio'
+    | '/community'
+    | '/marketplace'
+    | '/settings'
+    | '/artists/$id'
+    | '/artists/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accessibility'
+    | '/admin'
+    | '/ai-studio'
+    | '/community'
+    | '/marketplace'
+    | '/settings'
+    | '/artists/$id'
+    | '/artists'
+  id:
+    | '__root__'
+    | '/'
+    | '/accessibility'
+    | '/admin'
+    | '/ai-studio'
+    | '/community'
+    | '/marketplace'
+    | '/settings'
+    | '/artists/$id'
+    | '/artists/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  AdminRoute: typeof AdminRoute
+  AiStudioRoute: typeof AiStudioRoute
+  CommunityRoute: typeof CommunityRoute
+  MarketplaceRoute: typeof MarketplaceRoute
+  SettingsRoute: typeof SettingsRoute
+  ArtistsIdRoute: typeof ArtistsIdRoute
+  ArtistsIndexRoute: typeof ArtistsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketplace': {
+      id: '/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio': {
+      id: '/ai-studio'
+      path: '/ai-studio'
+      fullPath: '/ai-studio'
+      preLoaderRoute: typeof AiStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +198,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/artists/': {
+      id: '/artists/'
+      path: '/artists'
+      fullPath: '/artists/'
+      preLoaderRoute: typeof ArtistsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/artists/$id': {
+      id: '/artists/$id'
+      path: '/artists/$id'
+      fullPath: '/artists/$id'
+      preLoaderRoute: typeof ArtistsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  AdminRoute: AdminRoute,
+  AiStudioRoute: AiStudioRoute,
+  CommunityRoute: CommunityRoute,
+  MarketplaceRoute: MarketplaceRoute,
+  SettingsRoute: SettingsRoute,
+  ArtistsIdRoute: ArtistsIdRoute,
+  ArtistsIndexRoute: ArtistsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
