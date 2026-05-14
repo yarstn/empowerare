@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AccessibilityBar } from "@/components/accessibility-bar";
+import { I18nProvider, useI18n } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -88,8 +89,19 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <I18nProvider>
+        <AppShell />
+      </I18nProvider>
+    </QueryClientProvider>
+  );
+}
+
+function AppShell() {
+  const { t } = useI18n();
+  return (
+    <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">
-        Skip to content
+        {t("skip")}
       </a>
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
@@ -99,6 +111,6 @@ function RootComponent() {
         <SiteFooter />
       </div>
       <AccessibilityBar />
-    </QueryClientProvider>
+    </>
   );
 }
