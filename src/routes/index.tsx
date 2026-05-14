@@ -109,8 +109,8 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-teal">Trending Now</p>
-              <h2 className="mt-2 font-display text-4xl font-semibold">Creations the community loves</h2>
+              <p className="text-sm font-semibold uppercase tracking-wider text-teal">{t("section.trending")}</p>
+              <h2 className="mt-2 font-display text-4xl font-semibold">{t("section.trendingTitle")}</h2>
             </div>
             <Link to="/marketplace" className="hidden text-sm font-medium text-primary hover:underline md:block">Browse marketplace →</Link>
           </div>
