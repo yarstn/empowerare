@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Accessibility, Moon, Sun, Type, Contrast } from "lucide-react";
+import { Accessibility, Moon, Sun, Type, Contrast, Languages } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export function AccessibilityBar() {
   const [open, setOpen] = useState(false);

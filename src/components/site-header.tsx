@@ -1,25 +1,29 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Palette, Menu, X } from "lucide-react";
+import { Palette, Menu, X, Languages } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/marketplace", label: "Marketplace" },
-  { to: "/artists", label: "Artists" },
-  { to: "/community", label: "Community" },
-  { to: "/ai-studio", label: "AI Studio" },
-  { to: "/accessibility", label: "Accessibility" },
-];
+import { useI18n } from "@/lib/i18n";
 
 export function SiteHeader() {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const [open, setOpen] = useState(false);
+  const { t, lang, setLang } = useI18n();
+
+  const nav = [
+    { to: "/", label: t("nav.home") },
+    { to: "/marketplace", label: t("nav.marketplace") },
+    { to: "/artists", label: t("nav.artists") },
+    { to: "/community", label: t("nav.community") },
+    { to: "/ai-studio", label: t("nav.ai") },
+    { to: "/accessibility", label: t("nav.accessibility") },
+  ];
+
+  const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 md:px-6">
         <Link to="/" className="flex items-center gap-2 font-display text-xl font-semibold text-primary">
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-cta text-primary-foreground shadow-soft">
             <Palette className="h-5 w-5" />
@@ -43,22 +47,36 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="ghost" className="rounded-full">
-            <Link to="/settings">Settings</Link>
-          </Button>
+          <button
+            onClick={toggleLang}
+            aria-label="Toggle language"
+            className="flex h-9 items-center gap-1.5 rounded-full bg-muted px-3 text-sm font-semibold text-foreground hover:bg-secondary"
+          >
+            <Languages className="h-4 w-4" />
+            {lang === "en" ? "العربية" : "English"}
+          </button>
           <Button asChild className="rounded-full bg-gradient-cta text-primary-foreground shadow-soft hover:opacity-95">
-            <Link to="/marketplace">Explore</Link>
+            <Link to="/marketplace">{t("nav.explore")}</Link>
           </Button>
         </div>
 
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="grid h-10 w-10 place-items-center rounded-full bg-muted md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleLang}
+            aria-label="Toggle language"
+            className="grid h-10 w-10 place-items-center rounded-full bg-muted text-xs font-bold"
+          >
+            {lang === "en" ? "ع" : "EN"}
+          </button>
+          <button
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="grid h-10 w-10 place-items-center rounded-full bg-muted"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -78,7 +96,7 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link to="/settings" onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-base">
-              Settings
+              {t("nav.settings")}
             </Link>
           </nav>
         </div>
