@@ -26,8 +26,8 @@ function ArtistsList() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {artists.map((a) => (
           <Link key={a.id} to="/artists/$id" params={{ id: a.id }} className="group overflow-hidden rounded-3xl border border-border/60 bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-card">
-            <div className="relative h-32 bg-gradient-warm">
-              <span className="absolute -bottom-8 left-6 grid h-20 w-20 place-items-center rounded-2xl border-4 border-card bg-gradient-cta text-4xl shadow-soft">{a.emoji}</span>
+            <div className="relative h-40 overflow-hidden bg-gradient-warm">
+              <img src={a.image} alt={a.name} loading="lazy" width={896} height={896} className="absolute -bottom-10 left-6 h-20 w-20 rounded-2xl border-4 border-card object-cover shadow-soft" />
             </div>
             <div className="space-y-3 p-6 pt-12">
               <div>
