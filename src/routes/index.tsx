@@ -90,7 +90,7 @@ function HomePage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {artists.map((a) => (
             <Link key={a.id} to="/artists/$id" params={{ id: a.id }} className="group rounded-3xl border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card">
-              <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-warm text-3xl">{a.emoji}</div>
+              <img src={a.image} alt={a.name} loading="lazy" width={896} height={896} className="h-16 w-16 rounded-2xl object-cover" />
               <h3 className="mt-4 font-display text-xl font-semibold">{a.name}</h3>
               <p className="text-sm text-muted-foreground">{a.location}</p>
               <p className="mt-3 line-clamp-3 text-sm text-foreground/80">{a.story}</p>

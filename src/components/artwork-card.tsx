@@ -5,8 +5,15 @@ import type { Artwork } from "@/lib/data";
 export function ArtworkCard({ art }: { art: Artwork }) {
   return (
     <article className="group overflow-hidden rounded-3xl border border-border/60 bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-card">
-      <div className={`relative aspect-[4/5] bg-gradient-to-br ${art.gradient} grid place-items-center`}>
-        <span className="text-7xl drop-shadow-sm transition-transform duration-500 group-hover:scale-110" aria-hidden>{art.emoji}</span>
+      <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+        <img
+          src={art.image}
+          alt={`${art.title} by ${art.artist}`}
+          loading="lazy"
+          width={832}
+          height={1024}
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
         <span className="absolute left-3 top-3 rounded-full bg-card/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
           {art.category}
         </span>

@@ -29,7 +29,7 @@ function ArtistPage() {
     <div>
       <section className="bg-gradient-warm">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 md:grid-cols-[auto_1fr] md:px-6">
-          <div className="grid h-32 w-32 place-items-center rounded-3xl bg-card text-6xl shadow-soft">{a.emoji}</div>
+          <img src={a.image} alt={a.name} loading="lazy" width={896} height={896} className="h-32 w-32 rounded-3xl object-cover shadow-soft" />
           <div>
             <p className="text-sm font-medium text-teal">{a.location}</p>
             <h1 className="mt-1 font-display text-5xl font-semibold">{a.name}</h1>
