@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Heart, Users, TrendingUp, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, Heart, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArtworkCard } from "@/components/artwork-card";
 import { artworks, artists } from "@/lib/data";
@@ -48,18 +48,16 @@ function HomePage() {
                 <Link to="/community">{t("cta.supportArtists")} <Heart className="ml-1 h-4 w-4" /></Link>
               </Button>
             </div>
-            <dl className="grid grid-cols-3 gap-4 pt-6">
-              {[
-                { k: "1.2k+", v: t("stats.artists") },
-                { k: "$840k", v: t("stats.earned") },
-                { k: "62", v: t("stats.countries") },
-              ].map((s) => (
-                <div key={s.v} className="rounded-2xl bg-card/70 p-4 text-center backdrop-blur">
-                  <dt className="font-display text-2xl font-bold text-primary">{s.k}</dt>
-                  <dd className="text-xs text-muted-foreground">{s.v}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="pt-4">
+              <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">{t("section.trending")}</p>
+              <div className="flex gap-3">
+                {artworks.slice(0, 4).map((a) => (
+                  <Link key={a.id} to="/marketplace" className="group overflow-hidden rounded-2xl border border-border/40 shadow-soft">
+                    <img src={a.image} alt={a.title} loading="lazy" className="h-20 w-20 object-cover transition-transform duration-500 group-hover:scale-110" />
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="relative">
             <div className="overflow-hidden rounded-[2.5rem] bg-card shadow-card">
@@ -160,20 +158,13 @@ function HomePage() {
                 </Button>
               </div>
             </div>
-            <dl className="grid grid-cols-2 gap-4">
-              {[
-                { k: "92¢", v: "of every $1 to artists", icon: Heart },
-                { k: "1,240", v: "active artists", icon: Users },
-                { k: "+38%", v: "average earnings growth", icon: TrendingUp },
-                { k: "62", v: "countries reached", icon: Sparkles },
-              ].map((s) => (
-                <div key={s.v} className="rounded-2xl bg-cream/10 p-5 backdrop-blur">
-                  <s.icon className="h-6 w-6 text-cream" />
-                  <dt className="mt-3 font-display text-3xl font-bold">{s.k}</dt>
-                  <dd className="text-sm text-cream/80">{s.v}</dd>
-                </div>
+            <div className="grid grid-cols-2 gap-3">
+              {artworks.slice(0, 4).map((a) => (
+                <Link key={a.id} to="/marketplace" className="group overflow-hidden rounded-2xl border border-cream/20">
+                  <img src={a.image} alt={a.title} loading="lazy" className="aspect-square h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </Link>
               ))}
-            </dl>
+            </div>
           </div>
         </div>
       </section>
