@@ -16,13 +16,13 @@ import { I18nProvider, useI18n } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-[70vh] items-center justify-center px-4">
+    <div className="flex min-h-[70vh] items-center justify-center px-4" dir="rtl">
       <div className="max-w-md text-center">
         <h1 className="font-display text-7xl font-bold text-primary">404</h1>
-        <h2 className="mt-4 font-display text-2xl font-semibold">Page not found</h2>
-        <p className="mt-2 text-muted-foreground">The page you're looking for doesn't exist.</p>
+        <h2 className="mt-4 font-display text-2xl font-semibold">الصفحة غير موجودة</h2>
+        <p className="mt-2 text-muted-foreground">الصفحة التي تبحث عنها غير متوفرة.</p>
         <Link to="/" className="mt-6 inline-flex items-center justify-center rounded-full bg-gradient-cta px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft">
-          Go home
+          العودة للرئيسية
         </Link>
       </div>
     </div>
@@ -33,15 +33,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   return (
-    <div className="flex min-h-[70vh] items-center justify-center px-4">
+    <div className="flex min-h-[70vh] items-center justify-center px-4" dir="rtl">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-2xl font-semibold">Something went wrong</h1>
+        <h1 className="font-display text-2xl font-semibold">حدث خطأ ما</h1>
         <p className="mt-2 text-muted-foreground">{error.message}</p>
         <button
           onClick={() => { router.invalidate(); reset(); }}
           className="mt-6 inline-flex items-center justify-center rounded-full bg-gradient-cta px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft"
         >
-          Try again
+          أعد المحاولة
         </button>
       </div>
     </div>
