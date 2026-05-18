@@ -14,26 +14,32 @@ export function SiteFooter() {
             </span>
             EmpowerArt
           </div>
-          <p className="text-sm text-muted-foreground">{t("footer.tagline")}</p>
+          <p className="text-sm text-muted-foreground">
+            {t(
+              "A creative marketplace empowering artists with disabilities to thrive.",
+              "سوق إبداعي يُمكّن الفنانين من ذوي الإعاقة من الازدهار."
+            )}
+          </p>
         </div>
-        <FooterCol title={t("footer.discover")} links={[
-          { to: "/marketplace", label: t("nav.marketplace") },
-          { to: "/artists", label: t("nav.artists") },
-          { to: "/community", label: t("nav.community") },
+        <FooterCol title={t("Discover", "اكتشف")} links={[
+          { to: "/marketplace", label: t("Marketplace", "السوق") },
+          { to: "/artists", label: t("Artists", "الفنانون") },
+          { to: "/community", label: t("Community", "المجتمع") },
         ]} />
-        <FooterCol title={t("footer.forArtists")} links={[
-          { to: "/ai-studio", label: t("nav.ai") },
-          { to: "/admin", label: "Admin" },
-          { to: "/settings", label: t("nav.settings") },
+        <FooterCol title={t("For Artists", "للفنانين")} links={[
+          { to: "/ai-studio", label: t("AI Studio", "استوديو الذكاء") },
+          { to: "/admin", label: t("Admin", "لوحة الإدارة") },
+          { to: "/settings", label: t("Settings", "الإعدادات") },
         ]} />
-        <FooterCol title={t("footer.support")} links={[
-          { to: "/accessibility", label: t("nav.accessibility") },
-          { to: "/community", label: "Donate" },
-          { to: "/", label: "Contact" },
+        <FooterCol title={t("Support", "الدعم")} links={[
+          { to: "/accessibility", label: t("Accessibility", "إمكانية الوصول") },
+          { to: "/community", label: t("Donate", "تبرّع") },
+          { to: "/", label: t("Contact", "تواصل") },
         ]} />
       </div>
       <div className="border-t border-border/60 py-6 text-center text-sm text-muted-foreground">
-        {t("footer.made")} <Heart className="inline h-4 w-4 fill-secondary text-secondary" />
+        {t("Made with love for inclusive creativity.", "صُنع بحبّ من أجل إبداع شامل للجميع.")}{" "}
+        <Heart className="inline h-4 w-4 fill-secondary text-secondary" />
       </div>
     </footer>
   );

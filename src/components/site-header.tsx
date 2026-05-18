@@ -11,12 +11,12 @@ export function SiteHeader() {
   const { t, lang, setLang } = useI18n();
 
   const nav = [
-    { to: "/", label: t("nav.home") },
-    { to: "/marketplace", label: t("nav.marketplace") },
-    { to: "/artists", label: t("nav.artists") },
-    { to: "/community", label: t("nav.community") },
-    { to: "/ai-studio", label: t("nav.ai") },
-    { to: "/accessibility", label: t("nav.accessibility") },
+    { to: "/", label: t("Home", "الرئيسية") },
+    { to: "/marketplace", label: t("Marketplace", "السوق") },
+    { to: "/artists", label: t("Artists", "الفنانون") },
+    { to: "/community", label: t("Community", "المجتمع") },
+    { to: "/ai-studio", label: t("AI Studio", "استوديو الذكاء") },
+    { to: "/accessibility", label: t("Accessibility", "إمكانية الوصول") },
   ];
 
   const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
@@ -49,27 +49,29 @@ export function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <button
             onClick={toggleLang}
-            aria-label="Toggle language"
-            className="flex h-9 items-center gap-1.5 rounded-full bg-muted px-3 text-sm font-semibold text-foreground hover:bg-secondary"
+            aria-label={t("Switch language", "تبديل اللغة")}
+            className="flex h-9 items-center gap-1.5 rounded-full border border-border/60 bg-card/60 px-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
           >
             <Languages className="h-4 w-4" />
-            {lang === "en" ? "العربية" : "English"}
+            <span className={cn(lang === "ar" && "font-bold text-primary")}>ع</span>
+            <span className="text-muted-foreground">/</span>
+            <span className={cn(lang === "en" && "font-bold text-primary")}>EN</span>
           </button>
           <Button asChild className="rounded-full bg-gradient-cta text-primary-foreground shadow-soft hover:opacity-95">
-            <Link to="/marketplace">{t("nav.explore")}</Link>
+            <Link to="/marketplace">{t("Explore", "استكشف")}</Link>
           </Button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={toggleLang}
-            aria-label="Toggle language"
+            aria-label={t("Switch language", "تبديل اللغة")}
             className="grid h-10 w-10 place-items-center rounded-full bg-muted text-xs font-bold"
           >
             {lang === "en" ? "ع" : "EN"}
           </button>
           <button
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("Close menu", "إغلاق القائمة") : t("Open menu", "فتح القائمة")}
             aria-expanded={open}
             className="grid h-10 w-10 place-items-center rounded-full bg-muted"
             onClick={() => setOpen((v) => !v)}
@@ -96,7 +98,7 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link to="/settings" onClick={() => setOpen(false)} className="rounded-xl px-4 py-3 text-base">
-              {t("nav.settings")}
+              {t("Settings", "الإعدادات")}
             </Link>
           </nav>
         </div>
