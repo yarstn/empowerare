@@ -8,7 +8,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/ai-studio")({
   head: () => ({
     meta: [
-      { title: "استوديو الذكاء — EmpowerArt" },
+      { title: "استوديو الذكاء — تلاقي" },
       { name: "description", content: "أدوات ذكاء اصطناعي للتسعير والأوصاف واتجاهات السوق والتسويق — لدعم نمو الفنانين." },
     ],
   }),
@@ -35,7 +35,7 @@ function AIStudio() {
   const captions = [
     t("Slow mornings deserve quiet color. New piece, in the shop today. 🌅", "الصباحات الهادئة تستحق ألوانًا هادئة. عمل جديد في المتجر اليوم. 🌅"),
     t("Made by hand. Made on my own time. Made with intention. ✨", "صُنع باليد. على إيقاعي. بنيّةٍ صادقة. ✨"),
-    t("Every sale supports an artist directly. Find your next favorite at EmpowerArt. 💛", "كل عملية بيع تدعم فنانًا مباشرةً. اعثر على المفضّل القادم في إمباور آرت. 💛"),
+    t("Every sale supports an artist directly. Find your next favorite at Tallaqee. 💛", "كل عملية بيع تدعم فنانًا مباشرةً. اعثر على المفضّل القادم في تلاقي. 💛"),
   ];
 
   return (

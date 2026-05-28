@@ -28,7 +28,7 @@ export function SiteHeader() {
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-cta text-primary-foreground shadow-soft">
             <Palette className="h-5 w-5" />
           </span>
-          EmpowerArt
+          Tallaqee
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">

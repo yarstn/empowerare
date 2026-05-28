@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "المجتمع وورش العمل — EmpowerArt" },
+      { title: "المجتمع وورش العمل — تلاقي" },
       { name: "description", content: "جلسات فنية مباشرة وورش عمل ومحادثات وحملات تبرّع." },
     ],
   }),

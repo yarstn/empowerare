@@ -6,8 +6,8 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/artists/")({
   head: () => ({
     meta: [
-      { title: "الفنانون — EmpowerArt" },
-      { name: "description", content: "تعرّف على الفنانين الموهوبين من ذوي الإعاقة وراء كل عمل في إمباور آرت." },
+      { title: "الفنانون — تلاقي" },
+      { name: "description", content: "تعرّف على الفنانين الموهوبين من ذوي الإعاقة وراء كل عمل في تلاقي." },
     ],
   }),
   component: ArtistsList,

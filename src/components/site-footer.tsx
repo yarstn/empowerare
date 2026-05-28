@@ -12,7 +12,7 @@ export function SiteFooter() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-cta text-primary-foreground">
               <Palette className="h-5 w-5" />
             </span>
-            EmpowerArt
+            Tallaqee
           </div>
           <p className="text-sm text-muted-foreground">
             {t(
