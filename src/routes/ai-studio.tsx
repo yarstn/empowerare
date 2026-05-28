@@ -8,7 +8,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/ai-studio")({
   head: () => ({
     meta: [
-      { title: "استوديو الذكاء — EmpowerArt" },
+      { title: "استوديو الذكاء — تلاقي" },
       { name: "description", content: "أدوات ذكاء اصطناعي للتسعير والأوصاف واتجاهات السوق والتسويق — لدعم نمو الفنانين." },
     ],
   }),

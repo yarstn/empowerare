@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/accessibility")({
   head: () => ({
     meta: [
-      { title: "إمكانية الوصول — EmpowerArt" },
+      { title: "إمكانية الوصول — تلاقي" },
       { name: "description", content: "تنقّل صوتي، تحويل النص إلى كلام، دعم لغة الإشارة، توافق مع قارئات الشاشة، والمزيد." },
     ],
   }),

@@ -10,8 +10,8 @@ export const Route = createFileRoute("/artists/$id")({
     const a = artists.find((x) => x.id === params.id);
     return {
       meta: [
-        { title: a ? `${a.name} — EmpowerArt` : "Artist — EmpowerArt" },
-        { name: "description", content: a?.story ?? "Artist profile on EmpowerArt." },
+        { title: a ? `${a.name} — تلاقي` : "Artist — تلاقي" },
+        { name: "description", content: a?.story ?? "Artist profile on Tallaqee." },
         { property: "og:title", content: a?.name ?? "Artist" },
         { property: "og:description", content: a?.story ?? "" },
       ],

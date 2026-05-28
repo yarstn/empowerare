@@ -9,7 +9,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/settings")({
   head: () => ({
     meta: [
-      { title: "الإعدادات — EmpowerArt" },
+      { title: "الإعدادات — تلاقي" },
       { name: "description", content: "الملف الشخصي وإمكانية الوصول والإشعارات واللغة والمدفوعات والخصوصية." },
     ],
   }),

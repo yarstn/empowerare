@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "لوحة الإدارة — EmpowerArt" },
+      { title: "لوحة الإدارة — تلاقي" },
       { name: "description", content: "إدارة الفنانين والمنتجات والشراكات والتحليلات." },
     ],
   }),

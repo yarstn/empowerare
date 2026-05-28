@@ -10,7 +10,7 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/marketplace")({
   head: () => ({
     meta: [
-      { title: "السوق — EmpowerArt" },
+      { title: "السوق — تلاقي" },
       { name: "description", content: "تصفّح اللوحات والحرف اليدوية والفن الرقمي والإكسسوارات من فنانين ذوي إعاقة." },
     ],
   }),
