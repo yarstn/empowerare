@@ -32,7 +32,7 @@ function Settings() {
     <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
       <header className="mb-10">
         <p className="text-sm font-semibold uppercase tracking-wider text-teal">{t("Settings", "الإعدادات")}</p>
-        <h1 className="mt-2 font-display text-5xl font-semibold">{t("Make EmpowerArt yours", "خصّص إمباور آرت لك")}</h1>
+        <h1 className="mt-2 font-display text-5xl font-semibold">{t("Make Tallaqee yours", "خصّص تلاقي لك")}</h1>
       </header>
 
       <div className="grid gap-8 lg:grid-cols-[240px_1fr]">

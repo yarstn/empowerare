@@ -9,9 +9,9 @@ import heroArt from "@/assets/hero-art.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EmpowerArt — سوق إبداعي للفنانين من ذوي الإعاقة" },
+      { title: "تلاقي — سوق إبداعي للفنانين من ذوي الإعاقة" },
       { name: "description", content: "اكتشف وادعم واشترِ أعمال فنانين موهوبين من ذوي الإعاقة. سوق دافئ وشامل وسهل الوصول." },
-      { property: "og:title", content: "EmpowerArt" },
+      { property: "og:title", content: "تلاقي" },
       { property: "og:description", content: "سوق شامل يُمكّن الفنانين من ذوي الإعاقة." },
     ],
   }),
@@ -29,15 +29,15 @@ function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 md:grid-cols-2 md:px-6 md:py-24">
           <div className="space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full bg-card/80 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur">
-              <Sparkles className="h-4 w-4" /> {t("A marketplace built on belonging", "سوق مبني على الانتماء")}
+              <Sparkles className="h-4 w-4" /> {t("A platform where art meets artist", "منصة حيث يتلاقى الفن بالفنان")}
             </span>
             <h1 className="text-balance font-display text-5xl font-semibold leading-[1.1] text-primary md:text-6xl lg:text-7xl">
               {t("Art that empowers, hands that inspire.", "فنٌ يُمكّن، وأيادٍ تُلهم.")}
             </h1>
             <p className="max-w-xl text-balance text-lg text-muted-foreground">
               {t(
-                "EmpowerArt is a warm, accessible home where artists with disabilities showcase, sell, and grow — supported by community, AI tools, and people like you.",
-                "إمباور آرت بيتٌ دافئ وسهل الوصول يعرض فيه الفنانون من ذوي الإعاقة أعمالهم ويبيعونها وينمون — بدعمٍ من المجتمع وأدوات الذكاء الاصطناعي وأشخاصٍ مثلك."
+                "Tallaqee is a warm, accessible home where artists with disabilities showcase, sell, and grow — supported by community, AI tools, and people like you.",
+                "تلاقي بيتٌ دافئ وسهل الوصول يعرض فيه الفنانون من ذوي الإعاقة أعمالهم ويبيعونها وينمون — بدعمٍ من المجتمع وأدوات الذكاء الاصطناعي وأشخاصٍ مثلك."
               )}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -134,8 +134,8 @@ function HomePage() {
         <div className="grid gap-6 md:grid-cols-3">
           {[
             { name: t("Maya O.", "مايا أ."), quote: t(
-              "EmpowerArt let me turn painting from therapy into a living. I support my family with my art now.",
-              "أتاحت لي إمباور آرت أن أحوّل الرسم من علاجٍ إلى مهنة. أعيلُ عائلتي اليوم بفنّي."
+              "Tallaqee let me turn painting from therapy into a living. I support my family with my art now.",
+              "أتاحت لي تلاقي أن أحوّل الرسم من علاجٍ إلى مهنة. أعيلُ عائلتي اليوم بفنّي."
             ), emoji: "🌻" },
             { name: t("Luca F.", "لوكا ف."), quote: t(
               "The AI Studio helped me price my ceramics fairly. I doubled my monthly revenue in eight weeks.",

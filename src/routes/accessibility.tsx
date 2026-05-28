@@ -33,8 +33,8 @@ function AccessibilityPage() {
         <h1 className="mt-2 font-display text-5xl font-semibold">{t("Built so everyone belongs", "مُصمَّم ليكون للجميع")}</h1>
         <p className="mt-3 text-lg text-muted-foreground">
           {t(
-            "Accessibility isn't a feature on EmpowerArt — it's the foundation. Use the floating tool in the bottom-right corner to adjust your experience anytime.",
-            "إمكانية الوصول ليست ميزة في إمباور آرت — بل هي الأساس. استخدم الأداة العائمة في الزاوية لضبط تجربتك في أي وقت."
+            "Accessibility isn't a feature on Tallaqee — it's the foundation. Use the floating tool in the bottom-right corner to adjust your experience anytime.",
+            "إمكانية الوصول ليست ميزة في تلاقي — بل هي الأساس. استخدم الأداة العائمة في الزاوية لضبط تجربتك في أي وقت."
           )}
         </p>
       </header>
